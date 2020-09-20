@@ -73,7 +73,33 @@ dogAge();
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
 
 
+function dogFood(weight, age) {
+    let food = 0.0;
+    if (age >= 1.0) {
+        if (weight <= 5) {
+            food = weight * 0.05;
+        } else if (weight > 5 && weight <= 10) {
+            food = weight * 0.04;
+        } else if (weight > 10 && weight <= 15) {
+            food = weight * 0.03;
+        } else if (weight > 15) {
+            food = weight * 0.02;
+        }
+    } // if (age > 1.0) end loop for this case
+    else {
+        if (weight > 2 / 12 && weight <= 4 / 12) {
+            food = weight * 0.1;
+        } else if (weight > 4 / 12 && weight <= 7 / 12) {
+            food = weight * 0.05;
+        } else if (weight > 7 / 12 && weight <= 12 / 12) {
+            food = weight * 0.04;
+        }
+    }
 
+    return food;
+
+}
+dogFood(15, 1)
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -83,19 +109,54 @@ dogAge();
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
+let computerChoices = ["rock", "paper", "sissors"]
+let computerNum = Math.floor(Math.random() * 3);
+computerOption = computerChoices[computerNum];
 
+
+
+
+function game(userPick, computerPick) {
+
+
+
+
+    if (computerPick === userPick) {
+        return "Game is a tie!"
+    } else if (computerPick === "rock" && userPick === "paper") {
+        return "You won!"
+    } else if (computerPick === "paper" && userPick === "rock") {
+        return "computer won!"
+    } else if (computerPick === "paper" && userPick === "sissors") {
+        return "You won!"
+    } else if (computerPick === "sissors" && userPick === "paper") {
+        return "computer won!"
+    } else if (computerPick === "sissors" && userPick === "rock") {
+        return "You won!"
+    } else if (computerPick === "rock" && userPick === "sissors") {
+        return "computer won!"
+    }
+
+
+};
+
+let computerPick = computerOption;
+
+
+game("rock", computerPick);
 
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
-function toMiles(kiloM) {
-    return kiloM / 1.609344; // 1.609344km in 1miles
+function kmtoMiles(kilometers) {
+    return kilometers / 1.609344; // 1.609344km is 1miles
 
 }
 
-toMiles(3); // --> 1.86411 miles
+
+kmtoMiles(3); // --> 1.86411 miles
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
@@ -109,7 +170,14 @@ toMiles(3); // --> 1.86411 miles
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
 
+function annoyingSong(number) {
+    for (let i = number; i >= 0; i--) { // using for loop to iterate backwards with the -- to decrement and log the message each time
+        console.log(i + " bottles of soda on the wall " + i + " bottles of soda, take one down pass it around " + i + " bottles of soda on the wall`")
+    }
 
+}
+
+annoyingSong(10, 4)
 
 
 
@@ -122,6 +190,25 @@ toMiles(3); // --> 1.86411 miles
 //60s should be D 
 //and anything below 60 should be F
 
+function letterGrade(number) {
+
+    let grade = ""; //made an empty string to return my answer
+    if (number >= 90) {
+        grade = "A";
+    } else if (number >= 80) {
+        grade = "B";
+    } else if (number >= 70) {
+        grade = "C";
+    } else if (number >= 60) {
+        grade = "D";
+    } else {
+        grade = "F";
+    }
+
+    return grade;
+}
+
+letterGrade();
 
 
 
