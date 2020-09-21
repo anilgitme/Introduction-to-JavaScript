@@ -29,7 +29,7 @@ if (myName === name) {
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
 
-let num = parseInt("1999"); // parseInt converts a 
+let num = parseInt("1999"); // parseInt converts a string number to an integer
 console.log(num);
 
 
