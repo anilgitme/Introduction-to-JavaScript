@@ -29,7 +29,7 @@ if (myName === name) {
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
 
-let num = parseInt("1999");
+let num = parseInt("1999"); // parseInt converts a 
 console.log(num);
 
 
@@ -109,31 +109,27 @@ dogFood(15, 1)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-let computerChoices = ["rock", "paper", "sissors"]
-let computerNum = Math.floor(Math.random() * 3);
-computerOption = computerChoices[computerNum];
+let computerChoices = ["rock", "paper", "scissors"]
+let computerNum = Math.floor(Math.random() * 3); // chose to use Math.floor here because i want the number to be 0 - 2 for the index in computersChoice array
+computerOption = computerChoices[computerNum]; // generates the index of computerChoices from the index
 
 
+function game(userPick, computerPick) { // my parameters here are the users pick entry and the computers randomly generated pick
 
 
-function game(userPick, computerPick) {
-
-
-
-
-    if (computerPick === userPick) {
+    if (computerPick === userPick || userPick === computerPick) {
         return "Game is a tie!"
     } else if (computerPick === "rock" && userPick === "paper") {
         return "You won!"
-    } else if (computerPick === "paper" && userPick === "rock") {
+    } else if (computerPick === "paper" && userPick === "rock") { //chose to use some logical operators to shorten the code 
         return "computer won!"
-    } else if (computerPick === "paper" && userPick === "sissors") {
+    } else if (computerPick === "paper" && userPick === "scissors") {
         return "You won!"
-    } else if (computerPick === "sissors" && userPick === "paper") {
+    } else if (computerPick === "scissors" && userPick === "paper") {
         return "computer won!"
-    } else if (computerPick === "sissors" && userPick === "rock") {
+    } else if (computerPick === "scissors" && userPick === "rock") {
         return "You won!"
-    } else if (computerPick === "rock" && userPick === "sissors") {
+    } else if (computerPick === "rock" && userPick === "scissors") {
         return "computer won!"
     }
 
@@ -156,12 +152,16 @@ function kmtoMiles(kilometers) {
 }
 
 
-kmtoMiles(3); // --> 1.86411 miles
+kmtoMiles(3); // --> results in 1.86411 miles
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
 
+function cmConverter(feet) {
+    return feet * 30.48; // 30.48cm in 1 feet
+}
 
+cmConverter(.5); // = 15.24 which is half of 1 feet
 
 
 
@@ -177,7 +177,7 @@ function annoyingSong(number) {
 
 }
 
-annoyingSong(10, 4)
+annoyingSong(10);
 
 
 
@@ -190,7 +190,7 @@ annoyingSong(10, 4)
 //60s should be D 
 //and anything below 60 should be F
 
-function letterGrade(number) {
+const letterGrade = (number) => { //using the arrow function here
 
     let grade = ""; //made an empty string to return my answer
     if (number >= 90) {
@@ -208,7 +208,7 @@ function letterGrade(number) {
     return grade;
 }
 
-letterGrade();
+letterGrade(100);
 
 
 
@@ -218,10 +218,62 @@ letterGrade();
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
+const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
 
+function countVowel(str) {
+
+    let vowelsCount = 0; // initial count will start at 0 and will increase every a vowel is found
+
+    for (let i = 0; i <= str.length; i++) { // Made a for loop to iterate through my string
+
+        if (vowels.includes(str[i])) { // checking the string by index to see if its a vowel using the .include(/ method)
+            vowelsCount++; // incrementing the for loop everytime to iterate through the str.length
+        }
+    }
+
+    return vowelsCount;
+}
+
+countVowel("Anil"); // ==> 2
 
 
 
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
+
+
+
+let computerChoices = ["rock", "paper", "scissors"]
+let computerNum = Math.floor(Math.random() * 3); // chose to use Math.floor here because i want the number to be 0 - 2 for the index in computersChoice array
+computerOption = computerChoices[computerNum]; // generates the index of computerChoices from the index
+
+let promptUser = prompt("HEY! How about some Rock, Paper, scissors!");
+
+function game(promptUser, userPick, computerPick) { // my parameters here are the users pick entry and the computers randomly generated pick
+
+
+
+    if (computerPick === userPick || userPick === computerPick) {
+        return "Game is a tie!"
+    } else if (computerPick === "rock" && userPick === "paper") {
+        return "You won!"
+    } else if (computerPick === "paper" && userPick === "rock") { //chose to use some logical operators to shorten the code 
+        return "computer won!"
+    } else if (computerPick === "paper" && userPick === "scissors") {
+        return "You won!"
+    } else if (computerPick === "scissors" && userPick === "paper") {
+        return "computer won!"
+    } else if (computerPick === "scissors" && userPick === "rock") {
+        return "You won!"
+    } else if (computerPick === "rock" && userPick === "scissors") {
+        return "computer won!"
+    }
+
+
+};
+
+let computerPick = computerOption;
+
+
+game(userPrompt, "rock", computerPick);
