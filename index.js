@@ -150,7 +150,7 @@ game("rock", computerPick);
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
 function kmtoMiles(kilometers) {
-    return kilometers / 1.609344; // 1.609344miles in 1km
+    return kilometers / 1.609344; // 1.609344km in 1mile
 
 }
 
