@@ -73,25 +73,26 @@ dogAge();
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
 
 
-function dogFood(weight, age) {
+function dogFood(weight, age) { // using weight and age as the parameters for the given dog
     let food = 0.0;
-    if (age >= 1.0) {
-        if (weight <= 5) {
+
+    if (age >= 1.0) { // condition for dogs that are greater than or equal to 1 year
+        if (weight <= 5) { // dogs that are less than or equal to 5 do this case
             food = weight * 0.05;
-        } else if (weight > 5 && weight <= 10) {
+        } else if (weight > 5 && weight <= 10) { // if the weight is greater than 5 or less than of equal to 10 do this case
             food = weight * 0.04;
-        } else if (weight > 10 && weight <= 15) {
+        } else if (weight > 10 && weight <= 15) { // if the weight is greater than 10 or less than or equal to 15 do this case
             food = weight * 0.03;
-        } else if (weight > 15) {
+        } else if (weight > 15) { // finally for adult dogs if they are greater than 15 pounds do this case
             food = weight * 0.02;
         }
     } // if (age > 1.0) end loop for this case
     else {
-        if (weight > 2 / 12 && weight <= 4 / 12) {
+        if (age < 2 / 12 || age <= 4 / 12) { // new if statement for puppies
             food = weight * 0.1;
-        } else if (weight > 4 / 12 && weight <= 7 / 12) {
+        } else if (age < 4 / 12 || age <= 7 / 12) { // chose to divide the month by 12 because their is 12 months in 1 year
             food = weight * 0.05;
-        } else if (weight > 7 / 12 && weight <= 12 / 12) {
+        } else if (age < 7 / 12 || age <= 12 / 12) { // chose to use the logical or here because  both of these conditions has to be true for this code to execute(could have used && also)
             food = weight * 0.04;
         }
     }
@@ -99,7 +100,9 @@ function dogFood(weight, age) {
     return food;
 
 }
-dogFood(15, 1)
+
+dogFood(15, 1) /// >> 0.44999999999999996 pounds for dog 1 year
+dogFood(5, .2) /// >> .5 pounds for puppy
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -111,7 +114,7 @@ dogFood(15, 1)
 
 let computerChoices = ["rock", "paper", "scissors"]
 let computerNum = Math.floor(Math.random() * 3); // chose to use Math.floor here because i want the number to be 0 - 2 for the index in computersChoice array
-computerOption = computerChoices[computerNum]; // generates the index of computerChoices from the index
+let computerOption = computerChoices[computerNum]; // generates the index of computerChoices array from the randomly gererated number or index
 
 
 function game(userPick, computerPick) { // my parameters here are the users pick entry and the computers randomly generated pick
@@ -147,12 +150,13 @@ game("rock", computerPick);
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
 function kmtoMiles(kilometers) {
-    return kilometers / 1.609344; // 1.609344km is 1miles
+    return kilometers / 1.609344; // 1.609344miles in 1km
 
 }
 
-
 kmtoMiles(3); // --> results in 1.86411 miles
+
+
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
@@ -161,7 +165,9 @@ function cmConverter(feet) {
     return feet * 30.48; // 30.48cm in 1 feet
 }
 
-cmConverter(.5); // = 15.24 which is half of 1 feet
+cmConverter(.5); // = 15.24cm which is half of 1 feet
+
+
 
 
 
@@ -178,6 +184,8 @@ function annoyingSong(number) {
 }
 
 annoyingSong(10);
+
+
 
 
 
@@ -208,7 +216,9 @@ const letterGrade = (number) => { //using the arrow function here
     return grade;
 }
 
-letterGrade(100);
+letterGrade(100); // >> results in A output
+
+
 
 
 
@@ -218,7 +228,7 @@ letterGrade(100);
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
-const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]; // chose to put my lower case and uppercase vowels into my array of vowels
 
 function countVowel(str) {
 
@@ -226,8 +236,8 @@ function countVowel(str) {
 
     for (let i = 0; i <= str.length; i++) { // Made a for loop to iterate through my string
 
-        if (vowels.includes(str[i])) { // checking the string by index to see if its a vowel using the .include(/ method)
-            vowelsCount++; // incrementing the for loop everytime to iterate through the str.length
+        if (vowels.includes(str[i])) { // checking the string by index to see if its a vowel using the .include(method)
+            vowelsCount++; // adding 1 to the vowelCount variable each time a vowel is found for each iteration
         }
     }
 
